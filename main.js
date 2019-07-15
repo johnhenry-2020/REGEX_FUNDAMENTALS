@@ -40,12 +40,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const patterns = {
     //validating phone number (expression calls on input to begin & end with 10 digits)
-    telephone: /^\d{10}$/
+    telephone: /^\d{3}-\d{3}-\d{4}$/
   };
+
+  // validation function
+  //see if something is valid by testing it again regex pattern
+  function validate(inputField, regex) {
+
+    console.log(regex.test(inputField.value));
+  }
 
   inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
-      console.log(input);
+      // if (patterns.telephone == )
+      validate(e.target, patterns[e.target.attributes.name.value]);
     })
   });
 
