@@ -1,48 +1,73 @@
-body{
-    font-family: arial;
-    color: #fff;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+body {
+	font-family: arial;
+	color: #fff;
+	background: rgb(2, 0, 36);
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgb(0, 0, 0) 100%);
 }
-h1{
-    font-weight: normal;
-    margin: 20px auto;
-    text-align: center;
+h1 {
+	font-weight: normal;
+	margin: 20px auto;
+	text-align: center;
 }
-form{
-    width: 500px;
-    margin: 20px auto;
+form {
+	width: 500px;
+	margin: 20px auto;
 }
-input{
-    display: block;
-    padding: 8px 16px;
-    font-size: 2em;
-    margin: 10px auto;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 3px solid #ccc;
-    outline: none !important;
+input {
+	display: block;
+	padding: 8px 16px;
+	font-size: 2em;
+	margin: 10px auto;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: 3px solid #ccc;
+	outline: none !important;
 }
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: rgb(116, 116, 116);
-      opacity: 1; /* Firefox */
-    }
-
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: rgb(116, 116, 116);
-    }
-
-    ::-ms-input-placeholder { /* Microsoft Edge */
-      color: rgb(116, 116, 116);
-    }
-
-
-    /* validation styles */
-input.valid{
-  border-color: green ;
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: rgb(116, 116, 116);
+	opacity: 1; /* Firefox */
 }
 
-input.invalid{
-  border-color: darkred;
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgb(116, 116, 116);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: rgb(116, 116, 116);
+}
+
+/* validation styles */
+/* accesses the input tag when the class is set to valid*/
+input.valid {
+	border-color: green;
+}
+/* access the input tag when the class is set to valid*/
+input.invalid {
+	border-color: #ff4040;
+}
+/* locates the input tags and access the p tag next to each input...*/
+input + p {
+	color: #ff4040;
+	font-weight: lighter;
+	text-align: center;
+	margin: 0 10px;
+	opacity: 0;
+	height: 0;
+}
+
+/* accessing the paragraph adjacent to the input tag and styling it so
+when the form field is invalid the text is visible to clearly provide
+proper ques for the user*/
+input.invalid + p {
+	opacity: 1;
+	height: auto;
+}
+
+input.valid + p {
+	opacity: 0;
+	height: 0;
 }
