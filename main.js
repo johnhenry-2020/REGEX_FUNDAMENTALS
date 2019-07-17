@@ -25,12 +25,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   //the following is the longer method for crafting a regular expression vs the reg variable above
   // const reg2 = new NewReg(/[a-z]/, 'g', 'i');
 
-  /* Grab ahold of the different inputs and attach an event
+  /* Grab ahold of ALL the different inputs and attach an event
   listener to each one of these different things and find
   out which regular expression is associated with each field
   the user types in and we test that field's input against
   the appropriate regular expression*/
 
+  // this is known as an html collection
   const inputs = document.querySelectorAll("input");
 
   /* The following stores all of the different regex patterns
@@ -40,18 +41,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const patterns = {
     //validating phone number (expression calls on input to begin & end with 10 digits)
-    telephone: /^\d{3}-\d{3}-\d{4}$/
+    username: /^[a-z\d]{5,12}$/i,
+    email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i,
+    password: /^[\w_@-]{8,20}$/i,
+    telephone: /^((?!(0))[0-9]{3}-\d{3}-\d{4})$/i
   };
 
   // validation function
   //see if something is valid by testing it again regex pattern
   function validate(inputField, regex) {
-
-    console.log(regex.test(inputField.value));
+    if (regex.test(inputField.value)) {
+      inputField.className = "valid";
+    } else {
+      inputField.className = "invalid";
+    }
+    // console.log(regex.test(inputField.value));
   }
 
   inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
+      // e.preventDefault();
       // if (patterns.telephone == )
       validate(e.target, patterns[e.target.attributes.name.value]);
     })
