@@ -36,3 +36,13 @@ input{
     ::-ms-input-placeholder { /* Microsoft Edge */
       color: rgb(116, 116, 116);
     }
+
+
+    /* validation styles */
+input.valid{
+  border-color: green ;
+}
+
+input.invalid{
+  border-color: darkred;
+}
