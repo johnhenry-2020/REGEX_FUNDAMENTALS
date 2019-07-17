@@ -41,8 +41,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const patterns = {
     //validating phone number (expression calls on input to begin & end with 10 digits)
-    username: /^[a-z\d]{5,12}$/i,
-    email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i,
+    username: /^[a-z\d ]{5,12}$/i,
+    email: /^([a-z\d\.-]+)@([a-z\d-]{2,10})\.([a-z]{2,10})(\.[a-z]{2,10})?$/,
     password: /^[\w_@-]{8,20}$/i,
     telephone: /^((?!(0))[0-9]{3}-\d{3}-\d{4})$/i
   };
@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     } else {
       inputField.className = "invalid";
     }
-    // console.log(regex.test(inputField.value));
+    console.log(regex.test(inputField.value));
   }
 
   inputs.forEach((input) => {
